@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# env
+.env
+.env.test
+
+# logs
+logs/
+*.log
+
+# coverage
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db

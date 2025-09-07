@@ -1,0 +1,42 @@
+### Health
+GET http://localhost:3000/health
+
+### About (team)
+GET http://localhost:3000/api/about
+
+### Add user
+POST http://localhost:3000/api/add
+Content-Type: application/json
+
+{
+  "id": 123123,
+  "first_name": "Dor",
+  "last_name": "Cohen",
+  "birthday": "2000-01-02"
+}
+
+### Add cost
+POST http://localhost:3000/api/add
+Content-Type: application/json
+
+{
+  "userid": 123123,
+  "description": "milk 9",
+  "category": "food",
+  "sum": 8
+}
+
+### Report (current month)
+GET http://localhost:3000/api/report?id=123123&year={{$localDatetime rfc3339;YYYY}}&month={{$localDatetime rfc3339;M}}
+
+### Report (past month for cache demo)
+GET http://localhost:3000/api/report?id=123123&year=2025&month=6
+
+### User details
+GET http://localhost:3000/api/users/123123
+
+### All users
+GET http://localhost:3000/api/users
+
+### Logs
+GET http://localhost:3000/api/logs
