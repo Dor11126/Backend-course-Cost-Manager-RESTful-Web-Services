@@ -6,7 +6,7 @@ Stack: Node.js (ESM), Express, MongoDB Atlas (Mongoose), Pino, Jest/Supertest.
 ---
 
 ## Authors
-- Amil Davidov
+- Emil Davidov
 - Dor Cohen
 
 ---

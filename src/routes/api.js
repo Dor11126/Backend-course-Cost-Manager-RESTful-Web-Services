@@ -15,7 +15,7 @@ const router = express.Router(); // Create router instance
 router.get("/about", async (req, res) => {
   req.log.info({ msg: "about endpoint accessed" }); // Log endpoint access
   const team = [
-    { first_name: "Amil", last_name: "davidov" },
+    { first_name: "Emil", last_name: "davidov" },
     { first_name: "Dor", last_name: "Cohen" }
   ];
   await Log.create({ level: "info", message: "endpoint_access", path: "/api/about" }); // Persist a log record
