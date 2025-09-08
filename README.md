@@ -147,6 +147,6 @@ npm test
 
 ## Notes
 
-- Code follows the supplied style guide; Mongoose schemas live under `models/`.
+- Mongoose schemas live under `models/`.
 - Pino writes request and endpoint access logs to the `logs` collection.
 - The monthly report implements the computed design pattern.
