@@ -136,9 +136,13 @@ app.get("/", (req, res) => {
     <div class="card">
       <span class="badge">Cost Manager — REST API</span>
       <h1>Welcome</h1>
-<div class="sub">
+<div>
 This service is an API only. 
 We created this front page to explain capabilities and show examples.
+  <br> 
+<span>For GET requests you can paste the URL directly in your browser.</span>
+<span>For POST requests, you can use Postman or another HTTP client</span>
+  <br>
 </div>
 
       <h2>Base URLs</h2>
