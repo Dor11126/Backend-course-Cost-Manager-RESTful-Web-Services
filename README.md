@@ -41,8 +41,6 @@ CATEGORIES=food,health,housing,sports,education
 
 Notes:
 - Use the SRV string from Atlas → *Connect* → *Drivers (Node.js)* and add the DB name (e.g. `costmanager`).
-- Do not commit secrets. Rotate the Atlas password if it was shared during debugging.
-
 ---
 
 ## Install & Run
@@ -65,6 +63,14 @@ Health check:
 curl http://localhost:3000/health
 # -> {"ok":true}
 ```
+
+---
+
+## Deployment (Production URL)
+- **Production base URL:** https://backend-course-cost-manager-restful-web.onrender.com
+- Health: https://backend-course-cost-manager-restful-web.onrender.com/health
+- About: https://backend-course-cost-manager-restful-web.onrender.com/api/about
+
 
 ---
 
@@ -126,7 +132,6 @@ Run tests (requires `MONGODB_URI`):
 npm test
 ```
 
-Jest is configured for ESM; Supertest covers happy paths and validation errors.
 
 ---
 
@@ -142,6 +147,6 @@ Jest is configured for ESM; Supertest covers happy paths and validation errors.
 
 ## Notes
 
-- Code follows the supplied style guide; Mongoose schemas live under `models/` as required.
+- Code follows the supplied style guide; Mongoose schemas live under `models/`.
 - Pino writes request and endpoint access logs to the `logs` collection.
-- The monthly report implements the computed design pattern as specified.
+- The monthly report implements the computed design pattern.
