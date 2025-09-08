@@ -137,9 +137,8 @@ app.get("/", (req, res) => {
       <span class="badge">Cost Manager — REST API</span>
       <h1>Welcome</h1>
 <div class="sub">
-<br> Cannot GET /</br>
-This service is an API (no HTML UI). If you previously saw “Cannot GET /” that was expected. 
-This page is text-only, just to explain capabilities and show examples.
+This service is an API only. 
+We created this front page to explain capabilities and show examples.
 </div>
 
       <h2>Base URLs</h2>
