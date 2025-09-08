@@ -1,0 +1,31 @@
+# Health
+curl -s https://backend-course-cost-manager-restful-web.onrender.com/health
+
+# About
+curl -s https://backend-course-cost-manager-restful-web.onrender.com/api/about
+
+# Add user
+curl -s -X POST https://backend-course-cost-manager-restful-web.onrender.com/api/add \
+  -H "Content-Type: application/json" \
+  -d '{"id":123123,"first_name":"Dor","last_name":"Cohen","birthday":"2000-01-02"}'
+
+# Add cost (valid)
+curl -s -X POST https://backend-course-cost-manager-restful-web.onrender.com/api/add \
+  -H "Content-Type: application/json" \
+  -d '{"userid":123123,"description":"milk 9","category":"food","sum":8}'
+
+# Report (current month)
+curl -s "https://backend-course-cost-manager-restful-web.onrender.com/api/report?id=123123&year=2025&month=9"
+
+# Report (past month for cache demo)
+curl -s -H "If-None-Match:" -H "Cache-Control: no-cache" -H "Pragma: no-cache" \
+  "https://backend-course-cost-manager-restful-web.onrender.com/api/report?id=123123&year=2025&month=6"
+
+# User details
+curl -s https://backend-course-cost-manager-restful-web.onrender.com/api/users/123123
+
+# All users
+curl -s https://backend-course-cost-manager-restful-web.onrender.com/api/users
+
+# Logs
+curl -s https://backend-course-cost-manager-restful-web.onrender.com/api/logs

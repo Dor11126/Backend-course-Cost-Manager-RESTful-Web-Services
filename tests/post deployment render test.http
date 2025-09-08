@@ -1,0 +1,69 @@
+# Cost Manager – Production Tests (Render)
+# Base URL
+@base=https://backend-course-cost-manager-restful-web.onrender.com
+
+### Health
+GET {{base}}/health
+Accept: application/json
+
+### About (team)
+GET {{base}}/api/about
+Accept: application/json
+
+### Add user
+POST {{base}}/api/add
+Content-Type: application/json
+
+{
+  "id": 123123,
+  "first_name": "Dor",
+  "last_name": "Cohen",
+  "birthday": "2000-01-02"
+}
+
+### Add cost (valid, now)
+POST {{base}}/api/add
+Content-Type: application/json
+
+{
+  "userid": 123123,
+  "description": "milk 9",
+  "category": "food",
+  "sum": 8
+}
+
+### Add cost (invalid past createdAt) -> expect 400
+POST {{base}}/api/add
+Content-Type: application/json
+
+{
+  "userid": 123123,
+  "description": "old",
+  "category": "food",
+  "sum": 3.5,
+  "createdAt": "2025-08-30T10:00:00.000Z"
+}
+
+### Report (current month)
+GET {{base}}/api/report?id=123123&year={$localDatetime rfc3339;YYYY}&month={$localDatetime rfc3339;M}
+Accept: application/json
+
+### Report (past month, cache demo)
+# Remove client caching headers to observe server-side computed cache
+GET {{base}}/api/report?id=123123&year=2025&month=6
+Accept: application/json
+If-None-Match: 
+Cache-Control: no-cache
+Pragma: no-cache
+
+### User details
+GET {{base}}/api/users/123123
+Accept: application/json
+
+### All users
+GET {{base}}/api/users
+Accept: application/json
+
+### Logs
+GET {{base}}/api/logs
+Accept: application/json
