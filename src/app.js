@@ -61,7 +61,8 @@ app.get("/health", (req, res) => {
 // Compact, text-only landing page (no buttons, no JS)
 app.get("/", (req, res) => {
     const renderUrl = "https://backend-course-cost-manager-restful-web.onrender.com";
-    const localUrl  = `http://localhost:${process.env.PORT || 3000}`;
+    const localUrl  = "http://localhost:3000";
+
 
     const html = `<!doctype html>
 <html lang="en">
