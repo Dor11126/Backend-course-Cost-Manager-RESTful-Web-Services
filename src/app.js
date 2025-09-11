@@ -230,7 +230,7 @@ Content-Type: application/json
 
       <h3>(8) User details</h3>
       <pre><code>GET ${renderUrl}/api/users/123123
-→ { "first_name": "Dor", "last_name": "Cohen", "id": 123123, "total": &lt;sum&gt; }</code></pre>
+→ { "first_name": "mosh", "last_name": "israeli", "id": 123123, "total": &lt;sum&gt; }</code></pre>
 
       <h3>(9) All users</h3>
       <pre><code>GET ${renderUrl}/api/users
@@ -269,3 +269,4 @@ app.use((err, req, res, next) => {
 });
 
 export default app;
+//Dor
