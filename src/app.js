@@ -192,14 +192,14 @@ Local:      ${localUrl}</code></pre>
       <pre><code>POST ${renderUrl}/api/add
 Content-Type: application/json
 
-{ "id": 123123, "first_name": "Dor", "last_name": "Cohen", "birthday": "2000-01-02" }
+{ "id": 123123, "first_name": "mosh", "last_name": "israeli", "birthday": "2000-01-02" }
 → 201/200 (echoes the user document)</code></pre>
 
       <h3>(4) Add Cost (current)</h3>
       <pre><code>POST ${renderUrl}/api/add
 Content-Type: application/json
 
-{ "userid": 123123, "description": "milk 9", "category": "food", "sum": 8 }
+{ "userid": 123123, "description": "milk", "category": "food", "sum": 8 }
 → 201/200 (createdAt is set by the server if not provided)</code></pre>
 
       <h3>(5) Add Cost — invalid (past createdAt)</h3>

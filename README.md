@@ -91,8 +91,8 @@ Content-Type: application/json
 
 {
   "id": 123123,
-  "first_name": "Dor",
-  "last_name": "Cohen",
+  "first_name": "mosh",
+  "last_name": "israeli",
   "birthday": "2000-01-02"
 }
 
@@ -102,7 +102,7 @@ Content-Type: application/json
 
 {
   "userid": 123123,
-  "description": "milk 9",
+  "description": "milk",
   "category": "food",
   "sum": 8
 }
