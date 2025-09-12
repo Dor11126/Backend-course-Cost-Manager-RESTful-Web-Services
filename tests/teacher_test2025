@@ -1,33 +1,33 @@
-http://localhost:3000
+https://backend-course-cost-manager-restful-web.onrender.com/
 
 testing getting the about
 -------------------------
-url=http://localhost:3000/api/about/
+url=https://backend-course-cost-manager-restful-web.onrender.com//api/about/
 data.status_code=200
-b'[{"first_name":"Amil","last_name":"davidov"},{"first_name":"Dor","last_name":"Cohen"}]'
-data.text=[{"first_name":"Amil","last_name":"davidov"},{"first_name":"Dor","last_name":"Cohen"}]
-[{'first_name': 'Amil', 'last_name': 'davidov'}, {'first_name': 'Dor', 'last_name': 'Cohen'}]
+b'[{"first_name":"Emil","last_name":"Davidov"},{"first_name":"Dor","last_name":"Cohen"}]'
+data.text=[{"first_name":"Emil","last_name":"Davidov"},{"first_name":"Dor","last_name":"Cohen"}]
+[{'first_name': 'Emil', 'last_name': 'Davidov'}, {'first_name': 'Dor', 'last_name': 'Cohen'}]
 
 
 testing getting the report - 1
 ------------------------------
-url=http://localhost:3000/api/report/?id=123123&year=2025&month=9
+url=https://backend-course-cost-manager-restful-web.onrender.com//api/report/?id=123123&year=2025&month=9
 data.status_code=200
-b'{"userid":123123,"year":2025,"month":9,"costs":[{"food":[{"sum":8,"description":"milk 9","day":7},{"sum":18,"description":"yogurt pack","day":7},{"sum":8,"description":"milk now","day":7},{"sum":12,"description":"bread","day":8},{"sum":45,"description":"lunch","day":9}]},{"education":[{"sum":199,"description":"data structures book","day":7},{"sum":12,"description":"server course","day":7},{"sum":499,"description":"online course","day":13}]},{"health":[{"sum":29,"description":"vitamin C","day":7},{"sum":30,"description":"vitamins","day":10},{"sum":220,"description":"dentist checkup","day":11}]},{"housing":[{"sum":320,"description":"electricity bill","day":7},{"sum":249,"description":"Flat","day":7},{"sum":2500,"description":"rent","day":12}]},{"sports":[{"sum":45,"description":"tennis balls","day":7},{"sum":150,"description":"gym monthly","day":12}]}]}'
-data.text={"userid":123123,"year":2025,"month":9,"costs":[{"food":[{"sum":8,"description":"milk 9","day":7},{"sum":18,"description":"yogurt pack","day":7},{"sum":8,"description":"milk now","day":7},{"sum":12,"description":"bread","day":8},{"sum":45,"description":"lunch","day":9}]},{"education":[{"sum":199,"description":"data structures book","day":7},{"sum":12,"description":"server course","day":7},{"sum":499,"description":"online course","day":13}]},{"health":[{"sum":29,"description":"vitamin C","day":7},{"sum":30,"description":"vitamins","day":10},{"sum":220,"description":"dentist checkup","day":11}]},{"housing":[{"sum":320,"description":"electricity bill","day":7},{"sum":249,"description":"Flat","day":7},{"sum":2500,"description":"rent","day":12}]},{"sports":[{"sum":45,"description":"tennis balls","day":7},{"sum":150,"description":"gym monthly","day":12}]}]}
+b'{"userid":123123,"year":2025,"month":9,"costs":[{"food":[{"sum":45,"description":"lunch","day":9}]},{"education":[{"sum":199,"description":"data structures book","day":6},{"sum":499,"description":"online course","day":13}]},{"health":[{"sum":30,"description":"vitamins","day":10}]},{"housing":[{"sum":2500,"description":"rent","day":12}]},{"sports":[{"sum":45,"description":"tennis balls","day":6},{"sum":150,"description":"gym monthly","day":12}]}]}'
+data.text={"userid":123123,"year":2025,"month":9,"costs":[{"food":[{"sum":45,"description":"lunch","day":9}]},{"education":[{"sum":199,"description":"data structures book","day":6},{"sum":499,"description":"online course","day":13}]},{"health":[{"sum":30,"description":"vitamins","day":10}]},{"housing":[{"sum":2500,"description":"rent","day":12}]},{"sports":[{"sum":45,"description":"tennis balls","day":6},{"sum":150,"description":"gym monthly","day":12}]}]}
 
 
 
 testing adding cost item
 ----------------------------------
-url=http://localhost:3000/api/add/
+url=https://backend-course-cost-manager-restful-web.onrender.com//api/add/
 data.status_code=201
-b'{"description":"milk 9","category":"food","userid":123123,"sum":8,"createdAt":"2025-09-07T20:47:08.710Z"}'
+b'{"description":"milk 9","category":"food","userid":123123,"sum":8,"createdAt":"2025-09-12T10:37:37.829Z"}'
 
 
 testing getting the report - 2
 ------------------------------
-url=http://localhost:3000/api/report/?id=123123&year=2025&month=6
+url=https://backend-course-cost-manager-restful-web.onrender.com//api/report/?id=123123&year=2025&month=6
 data.status_code=200
 b'{"userid":123123,"year":2025,"month":6,"costs":[{"food":[]},{"education":[]},{"health":[]},{"housing":[]},{"sports":[]}]}'
 data.text={"userid":123123,"year":2025,"month":6,"costs":[{"food":[]},{"education":[]},{"health":[]},{"housing":[]},{"sports":[]}]}
