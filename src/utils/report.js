@@ -1,6 +1,4 @@
-/*
- * Utility: compute monthly report per spec and format exactly.
- */
+/* Helper functions to compute monthly reports from costs, group them by categories, and implement the Computed Design Pattern with MongoDB caching. */
 import dayjs from "dayjs";
 import { Cost } from "../models/cost.js";
 

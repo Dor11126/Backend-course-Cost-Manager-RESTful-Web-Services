@@ -1,6 +1,4 @@
-/*
- * API routes per spec
- */
+/* Defines the REST API endpoints (/api/add, /api/report, /api/users, /api/logs, /api/about) with validation and JSON fields that match the MongoDB schema. */
 import express from "express";
 import { User } from "../models/user.js";
 import { Cost } from "../models/cost.js";

@@ -1,3 +1,4 @@
+/* Mongoose schema/model for the logs collection storing HTTP request/endpoint entries with timestamps (optional TTL for auto-cleanup). */
 /*
  * logs collection (Mongoose)
  * Saved on every HTTP request and on endpoint access

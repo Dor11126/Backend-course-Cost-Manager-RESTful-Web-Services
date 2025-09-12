@@ -1,7 +1,5 @@
-/*
- * Middleware: saves a log document for every HTTP request.
- * Also leaves pino to log to stdout.
- */
+/* Express middleware that persists a log document for every HTTP request (and endpoint access), optionally skipping health checks, using the Log model. */
+/* Middleware: saves a log document for every HTTP request.*/
 import { Log } from "../models/log.js";
 
 export async function requestLogSaver(req, res, next) {

@@ -1,3 +1,4 @@
+/* Builds and configures the Express application (security, JSON, CORS, logging), connects to MongoDB Atlas, registers routes, and serves a text/HTML landing page. */
 import express from "express";
 import helmet from "helmet";
 import cors from "cors";
@@ -8,9 +9,10 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc.js";
 import tz from "dayjs/plugin/timezone.js";
 import apiRouter from "./routes/api.js";
-import { requestLogSaver } from "./middlewares/request-log-saver.js";
+import {requestLogSaver} from "./middlewares/request-log-saver.js";
 
-// Extend dayjs with UTC and timezone plugins
+// Extend dayjs with UTC and timezone plugins for date handling
+// Used for cost item timestamps and report grouping
 dayjs.extend(utc);
 dayjs.extend(tz);
 
@@ -20,11 +22,11 @@ const app = express();
 /* Security & parsing middleware */
 app.use(helmet()); // Secure HTTP headers
 app.use(cors()); // Enable CORS for all origins
-app.use(express.json({ limit: "1mb" })); // per spec, JSON API
+app.use(express.json({limit: "1mb"})); // per spec, JSON API
 
 /* Pino logger for console */
-const logger = pino({ level: process.env.NODE_ENV === "test" ? "silent" : "info" });
-app.use(pinoHttp({ logger }));
+const logger = pino({level: process.env.NODE_ENV === "test" ? "silent" : "info"});
+app.use(pinoHttp({logger}));
 
 /* Connect to MongoDB Atlas */
 const mongoUri = process.env.MONGODB_URI;
@@ -35,12 +37,12 @@ if (!mongoUri) {
 }
 mongoose.set("strictQuery", true);
 mongoose
-    .connect(mongoUri, { autoIndex: true })
-    .then(() => logger.info({ msg: "Connected to MongoDB" }))
+    .connect(mongoUri, {autoIndex: true})
+    .then(() => logger.info({msg: "Connected to MongoDB"}))
     .catch((err) => {
         // eslint-disable-next-line no-console
         console.error("MongoDB connection error", err);
-        if (process.env.NODE_ENV === "test") throw err;  // לא לסגור תהליך בטסטים
+        if (process.env.NODE_ENV === "test") throw err;  // do not exit test runner in CI
         process.exit(1);
     });
 
@@ -52,16 +54,16 @@ app.use("/api", apiRouter);
 
 /* Root health */
 app.get("/health", (req, res) => {
-    req.log.info({ msg: "health endpoint accessed" });
-    res.json({ ok: true });
+    req.log.info({msg: "health endpoint accessed"});
+    res.json({ok: true});
 });
-
 
 
 // Compact, text-only landing page (no buttons, no JS)
 app.get("/", (req, res) => {
+    // Renders a simple HTML page describing API endpoints and usage
     const renderUrl = "https://backend-course-cost-manager-restful-web.onrender.com";
-    const localUrl  = "http://localhost:3000";
+    const localUrl = "http://localhost:3000";
 
 
     const html = `<!doctype html>
@@ -86,9 +88,6 @@ app.get("/", (req, res) => {
     --h3: 14px;                 
 --muted: #9aa4b2; --text:#e5e7eb; --accent:#22d3ee; --border:rgba(255,255,255,.12);
 --bg1:#19243a; --bg2:#1f315a;
-
-
-
 
 
   }
@@ -184,7 +183,7 @@ Local:      ${localUrl}</code></pre>
       <h3>(2) Developers team (About)</h3>
       <pre><code>GET ${renderUrl}/api/about
 → [
-  { "first_name": "Amil", "last_name": "Davidov" },
+  { "first_name": "Emil", "last_name": "Davidov" },
   { "first_name": "Dor",  "last_name": "Cohen" }
 ]</code></pre>
 
@@ -260,12 +259,11 @@ Content-Type: application/json
 });
 
 
-
 /* Error handler: return JSON with error description */
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
-    req.log?.error({ msg: "Unhandled error", error: err.message });
-    return res.status(500).json({ error: "internal_error", message: err.message });
+    req.log?.error({msg: "Unhandled error", error: err.message});
+    return res.status(500).json({error: "internal_error", message: err.message});
 });
 
 export default app;

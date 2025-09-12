@@ -1,3 +1,4 @@
+/* Mongoose schema/model for the costs collection (description, category enum, userid:Number, sum:Number as Double, createdAt not in the past). */
 import mongoose from "mongoose";
 
 // Allowed categories, loaded from env or default list

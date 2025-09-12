@@ -1,3 +1,4 @@
+/* Mongoose schema/model for the users collection */
 /*
  * users collection (Mongoose)
  * Fields and types per spec:

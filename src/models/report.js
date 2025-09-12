@@ -1,3 +1,4 @@
+/* Mongoose schema/model for computed monthly reports per the Computed Pattern. */
 /*
  * reports collection (Mongoose) - computed cache for past months
  *  - userid: Number

@@ -1,3 +1,5 @@
+/* Jest configuration for ESM Node, test discovery, and environment flags used to run the API tests reliably. */
+
 /** @type {import('jest').Config} */
 export default {
   testEnvironment: "node",

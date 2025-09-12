@@ -1,3 +1,4 @@
+/* Starts the HTTP server by importing the Express app and listening on the provided PORT for local and production runs. */
 import * as dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
