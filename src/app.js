@@ -248,7 +248,7 @@ Content-Type: application/json
 • Validation on input and report params (month 1..12)
 • Logging for every request + endpoint access (Pino)
 • Env: MONGODB_URI, NODE_ENV, CATEGORIES, PORT</code></pre>
-      <div class="small">Developers Team: <code>Amil Davidov</code>, <code>Dor Cohen</code></div>
+      <div class="small">Developers Team: <code>Emil Davidov</code>, <code>Dor Cohen</code></div>
     </div>
 
   </div>
